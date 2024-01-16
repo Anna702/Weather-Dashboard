@@ -33,7 +33,18 @@ function callApi(cityName) {
 
       $.getJSON(queryUrl)
         .done(function (weatherData) {
-          console.log(`Got weatherData ${JSON.stringify(weatherData)}`);
+          const dataWeather = `${JSON.stringify(weatherData)}`;
+          console.log(`it is a dataweather: ${dataWeather}`);
+
+          //add fetched data to the screen
+          const todayDate = "   (" + dayjs().format("DD/M/YYYY") + ")";
+
+          const temperature = $("<p>").text(
+            `Temp: ${Math.round(weatherData.list[0].main.temp - 273.15)}°C`
+          );
+
+          $("#today").append(cityName, todayDate, temperature);
+          $("#today").addClass("today-weather");
           // todo: got weather data, add city to the list
         })
         //If the Weather API call fails - an alert is shown
