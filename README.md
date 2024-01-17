@@ -21,7 +21,7 @@ This is a weather dashboard with form inputs.
 
 ## Project status
 
-Deployed: https://anna702.github.io/Weather-Dashboard/
+Deployed but not completle ready to use: https://anna702.github.io/Weather-Dashboard/
 
 ## License
 
