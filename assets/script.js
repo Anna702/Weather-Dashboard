@@ -37,13 +37,19 @@ function callApi(cityName) {
           console.log(`it is a dataweather: ${dataWeather}`);
 
           //add fetched data to the screen
+
           const todayDate = "   (" + dayjs().format("DD/M/YYYY") + ")";
 
+          const icon = weatherData.list[0].weather[0].icon;
+          const iconSrc = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+          const iconImg = $("<img>").attr("src", iconSrc);
+
+          const mainInfo = cityName + todayDate;
           const temperature = $("<p>").text(
             `Temp: ${Math.round(weatherData.list[0].main.temp - 273.15)}°C`
           );
 
-          $("#today").append(cityName, todayDate, temperature);
+          $("#today").append(mainInfo, iconImg, temperature);
           $("#today").addClass("today-weather");
           // todo: got weather data, add city to the list
         })
