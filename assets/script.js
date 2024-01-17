@@ -50,12 +50,15 @@ function callApi(cityName) {
             `Temp: ${Math.round(weatherData.list[0].main.temp - 273.15)}°C`
           );
 
-          console.log(weatherData.list[0].wind);
           const wind = $("<p>").text(
             `Wind: ${weatherData.list[0].wind.speed} KPH`
           );
 
-          $("#today").append(mainInfo, iconImg, temperature, wind);
+          const humidity = $("<p>").text(
+            `Humidity: ${weatherData.list[0].main.humidity} %`
+          );
+
+          $("#today").append(mainInfo, iconImg, temperature, wind, humidity);
           $("#today").addClass("today-weather");
           // todo: got weather data, add city to the list
         })
