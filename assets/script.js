@@ -17,7 +17,7 @@ let uniqueCities = [];
 //fetch all the necessary data and display
 function callApi(cityName) {
   //creating a query url
-  let queryUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIkey}`;
+  let queryUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIkey}`;
 
   // an asynchronous request to retrieve JSON data
   $.getJSON(queryUrl)
@@ -28,7 +28,7 @@ function callApi(cityName) {
         alert("Can not find such city, try again, please.");
         return;
       }
-      //todo: check that the city is the expected one and not just some random
+
       console.log(`found city ${JSON.stringify(geoData[0])}`);
 
       //creating a new URL for the second API call - with latitude and longitude from the geoData
