@@ -45,11 +45,17 @@ function callApi(cityName) {
           const iconImg = $("<img>").attr("src", iconSrc);
 
           const mainInfo = cityName + todayDate;
+
           const temperature = $("<p>").text(
             `Temp: ${Math.round(weatherData.list[0].main.temp - 273.15)}°C`
           );
 
-          $("#today").append(mainInfo, iconImg, temperature);
+          console.log(weatherData.list[0].wind);
+          const wind = $("<p>").text(
+            `Wind: ${weatherData.list[0].wind.speed} KPH`
+          );
+
+          $("#today").append(mainInfo, iconImg, temperature, wind);
           $("#today").addClass("today-weather");
           // todo: got weather data, add city to the list
         })
